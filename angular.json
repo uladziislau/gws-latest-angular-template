@@ -32,6 +32,11 @@
                 "glob": "**/*.md",
                 "input": "docs",
                 "output": "docs"
+              },
+              {
+                "glob": "*.md",
+                "input": ".",
+                "output": "/"
               }
             ],
             "styles": [

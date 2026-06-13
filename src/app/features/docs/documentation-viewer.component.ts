@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
+import { I18nService, Language } from '../../core/i18n.service';
 
 @Component({
   selector: 'app-documentation-viewer',
@@ -12,21 +13,22 @@ import DOMPurify from 'dompurify';
     <div class="max-w-4xl mx-auto py-12 px-6">
       <div class="mb-8">
         <h1 class="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-          Документация
+          {{ i18n.t()('docs.title') }}
         </h1>
         <p class="text-zinc-500 dark:text-zinc-400 mt-2">
-          Руководство по миграции на Angular 22
+          {{ i18n.t()('docs.subtitle') }}
         </p>
       </div>
 
-      <div class="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+      <div class="p-8 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
         @if (isLoading()) {
-          <div class="flex items-center justify-center py-20">
+          <div class="flex flex-col items-center justify-center py-20 gap-4">
             <span class="w-8 h-8 rounded-full border-4 border-zinc-200 dark:border-zinc-800 border-t-indigo-500 animate-spin"></span>
+            <span class="text-sm text-zinc-500">{{ i18n.t()('docs.loading') }}</span>
           </div>
         } @else if (error()) {
           <div class="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-900/50">
-            {{ error() }}
+            {{ i18n.t()('docs.error') }}
           </div>
         } @else {
           <article 
@@ -39,20 +41,26 @@ import DOMPurify from 'dompurify';
     </div>
   `
 })
-export class DocumentationViewerComponent implements OnInit {
+export class DocumentationViewerComponent {
+  i18n = inject(I18nService);
+  
   htmlContent = signal<string>('');
   isLoading = signal<boolean>(true);
   error = signal<string | null>(null);
 
-  ngOnInit() {
-    this.fetchMarkdown();
+  constructor() {
+    effect(() => {
+      this.fetchMarkdown(this.i18n.currentLang());
+    });
   }
 
-  async fetchMarkdown() {
+  async fetchMarkdown(lang: Language) {
     try {
       this.isLoading.set(true);
+      this.error.set(null);
       // Fetches the markdown from the docs folder we exposed as assets
-      const response = await fetch('/docs/migration-to-angular-22.md');
+      const fileName = lang === 'en' ? 'migration-to-angular-22.en.md' : 'migration-to-angular-22.md';
+      const response = await fetch('/docs/' + fileName);
       
       if (!response.ok) {
         throw new Error('Не удалось загрузить документацию.');
@@ -70,3 +78,4 @@ export class DocumentationViewerComponent implements OnInit {
     }
   }
 }
+

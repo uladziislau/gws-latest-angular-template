@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { I18nService } from '../core/i18n.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -16,26 +17,25 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
               <span class="text-white font-bold font-mono text-sm">FSD</span>
             </div>
             <h1 class="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50 tracking-[-0.02em]">
-              Универсальный <span class="text-zinc-500 font-medium tracking-normal">Шаблон</span>
+              {{ i18n.t()('layout.title.part1') }} <span class="text-zinc-500 font-medium tracking-normal">{{ i18n.t()('layout.title.part2') }}</span>
             </h1>
           </div>
           <nav class="flex items-center gap-4">
-            <a routerLink="/" 
-               routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium" 
-               [routerLinkActiveOptions]="{exact: true}"
-               class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-              Главная
-            </a>
             <a routerLink="/docs" 
                routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium"
                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-              Документация
+              {{ i18n.t()('nav.docs') }}
             </a>
             <a routerLink="/tests" 
                routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium"
                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-              Статус и Тесты
+              {{ i18n.t()('nav.tests') }}
             </a>
+            <button 
+              (click)="i18n.toggleLanguage()"
+              class="ml-4 flex items-center justify-center h-8 px-3 rounded-md border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+              {{ i18n.currentLang() === 'ru' ? 'EN' : 'RU' }}
+            </button>
           </nav>
         </div>
       </header>
@@ -47,4 +47,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
     </div>
   `
 })
-export class MainLayoutComponent {}
+export class MainLayoutComponent {
+  i18n = inject(I18nService);
+}
+

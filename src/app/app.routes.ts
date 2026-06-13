@@ -7,7 +7,8 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./features/demo/demo.component').then(m => m.DemoFeatureComponent)
+        redirectTo: 'tests',
+        pathMatch: 'full'
       },
       {
         path: 'tests',
@@ -20,3 +21,4 @@ export const routes: Routes = [
     ]
   }
 ];
+
