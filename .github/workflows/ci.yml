@@ -30,7 +30,7 @@ jobs:
       run: npm run lint
       
     - name: Run Tests (Vitest)
-      run: npm run test -- --run # Используем --run чтобы предотвратить watch-mode в CI
+      run: npm run test -- --watch=false # Используем --watch=false чтобы предотвратить watch-mode в CI
       
     - name: Build Application
       run: npm run build

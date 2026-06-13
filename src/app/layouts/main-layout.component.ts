@@ -26,6 +26,11 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
               Главная
             </a>
+            <a routerLink="/docs" 
+               routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium"
+               class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+              Документация
+            </a>
             <a routerLink="/tests" 
                routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium"
                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
