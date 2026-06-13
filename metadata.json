@@ -1,0 +1,8 @@
+{
+  "name": "Angular Next-Gen",
+  "description": "Современное full-stack веб-приложение на Angular с безонным OnPush рендерингом (Zoneless), Motion анимациями и Tailwind CSS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
