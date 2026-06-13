@@ -80,6 +80,12 @@ When migrating to Angular 22 in AI Studio, it is extremely important to build a 
 
 ---
 
-## 3. Post-install Configuration Step
+## 3. Post-install Configuration Step (For the AI Agent)
 
-Create a patch file `patch-node-version.js` in the project root to bypass the Node.js limitation. Add `"postinstall": "node patch-node-version.js"` to `package.json` scripts. Ensure `package.json` contains appropriate `@angular/*` libraries synced to version `22.0.0`.
+Since Google AI Studio **does not provide a user-facing terminal**, all file creations and script executions must be done by the AI Agent itself. 
+
+To bypass the Node.js limitation, instruct the AI Agent to:
+1. Create a patch file `patch-node-version.js` in the project root.
+2. Add `"postinstall": "node patch-node-version.js"` to `package.json` scripts.
+3. Ensure `package.json` contains appropriate `@angular/*` libraries synced to version `22.0.0`.
+4. Run dependency installation (`npm install`) on its own to trigger the post-install patch.

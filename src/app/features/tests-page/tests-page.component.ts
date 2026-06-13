@@ -30,43 +30,41 @@ const expect = (actual: unknown) => ({
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="max-w-3xl mx-auto py-12 px-6">
-      <div class="space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border"
-             [ngClass]="testsFailed() ? 'bg-red-50 text-red-700 border-red-200' : 'bg-green-50 text-green-700 border-green-200'">
-          <span class="w-2 h-2 rounded-full animate-pulse"
-                [ngClass]="testsFailed() ? 'bg-red-500' : 'bg-green-500'"></span>
-          <span class="text-xs font-medium tracking-wide uppercase">
-            {{ testsFailed() ? i18n.t()('tests.systems.offline') : i18n.t()('tests.systems.operational') }}
-          </span>
-        </div>
+      <div class="space-y-8">
         
-        <h1 class="text-3xl font-extrabold tracking-tight text-zinc-900 border-b border-zinc-200 pb-4">
-          {{ i18n.currentLang() === 'ru' ? 'Системная информация и Тесты' : 'System Information & Tests' }}
-        </h1>
-        
-        <div class="p-8 rounded-[2rem] bg-white border border-zinc-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col gap-5 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
-          <h2 class="text-lg font-semibold text-zinc-800">
-            {{ i18n.currentLang() === 'ru' ? 'Текущее окружение (Runtime)' : 'Current Environment (Runtime)' }}
-          </h2>
+        <div class="p-8 md:p-10 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] flex flex-col gap-6 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h2 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+              {{ i18n.currentLang() === 'ru' ? 'Текущее окружение (Runtime)' : 'Current Environment (Runtime)' }}
+            </h2>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border shadow-sm transition-colors duration-500 w-fit"
+                 [ngClass]="testsFailed() ? 'bg-red-50 dark:bg-red-500/10 text-red-700 dark:text-red-400 border-red-200 dark:border-red-500/20' : 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 border-green-200 dark:border-green-500/20'">
+              <span class="w-2 h-2 rounded-full animate-pulse"
+                    [ngClass]="testsFailed() ? 'bg-red-500' : 'bg-green-500'"></span>
+              <span class="text-[10px] font-bold tracking-wider uppercase">
+                {{ testsFailed() ? i18n.t()('tests.systems.offline') : i18n.t()('tests.systems.operational') }}
+              </span>
+            </div>
+          </div>
           
           <div class="grid grid-cols-2 gap-4">
-            <div class="p-4 rounded-xl bg-white border border-zinc-100 shadow-sm">
-              <span class="block text-xs font-medium text-zinc-500 mb-1">
+            <div class="p-5 rounded-2xl bg-zinc-50/50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 shadow-sm transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800">
+              <span class="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">
                 {{ i18n.currentLang() === 'ru' ? 'Фреймворк' : 'Framework' }}
               </span>
-              <span class="text-xl font-bold text-red-600">Angular v{{ angularVersion }}</span>
+              <span class="text-xl font-bold text-red-600 dark:text-red-500">Angular v{{ angularVersion }}</span>
             </div>
             
-            <div class="p-4 rounded-xl bg-white border border-zinc-100 shadow-sm">
-              <span class="block text-xs font-medium text-zinc-500 mb-1">
+            <div class="p-5 rounded-2xl bg-zinc-50/50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 shadow-sm transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800">
+              <span class="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">
                 {{ i18n.currentLang() === 'ru' ? 'Детекция изменений' : 'Change Detection' }}
               </span>
-              <span class="text-xl font-bold text-zinc-800">Zoneless (OnPush)</span>
+              <span class="text-xl font-bold text-zinc-800 dark:text-zinc-200">Zoneless (OnPush)</span>
             </div>
           </div>
         </div>
 
-        <div class="p-8 rounded-[2rem] bg-[#1e1e20] border border-[#2b2b2d] shadow-[0_8px_30px_rgb(0,0,0,0.2)] mt-8 font-mono transition-all duration-500 hover:border-[#3b3b3d]">
+        <div class="p-8 md:p-10 rounded-[2.5rem] bg-[#1e1e20] border border-[#2b2b2d] shadow-[0_8px_30px_rgb(0,0,0,0.2)] font-mono transition-all duration-500 hover:border-[#3b3b3d]">
           <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#2b2b2d]">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-lg flex items-center justify-center transition-colors"

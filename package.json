@@ -1,6 +1,25 @@
 {
-  "name": "ai-studio-angular-app",
-  "version": "0.0.0",
+  "name": "google-ai-studio-angular-22-template",
+  "version": "1.0.0",
+  "description": "The ultimate boilerplate to bypass Google AI Studio limitations and run Angular 22 (Zoneless) directly in the AI workspace container.",
+  "keywords": [
+    "angular 22",
+    "google ai studio",
+    "ai studio",
+    "gemini",
+    "agentic coding",
+    "zoneless",
+    "tailwind 4",
+    "llm",
+    "ai assistant",
+    "vite"
+  ],
+  "author": "Uladzislau Darazhei",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dev-Biceps/gws-latest-angular-template.git"
+  },
   "scripts": {
     "postinstall": "node patch-node-version.js",
     "ng": "cross-env NG_DISABLE_VERSION_CHECK=true ng",

@@ -11,16 +11,7 @@ import { I18nService, Language } from '../../core/i18n.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="max-w-4xl mx-auto py-12 px-6">
-      <div class="mb-8">
-        <h1 class="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-          {{ i18n.t()('docs.title') }}
-        </h1>
-        <p class="text-zinc-500 dark:text-zinc-400 mt-2">
-          {{ i18n.t()('docs.subtitle') }}
-        </p>
-      </div>
-
-      <div class="p-8 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
+      <div class="p-8 md:p-12 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
         @if (isLoading()) {
           <div class="flex flex-col items-center justify-center py-20 gap-4">
             <span class="w-8 h-8 rounded-full border-4 border-zinc-200 dark:border-zinc-800 border-t-indigo-500 animate-spin"></span>

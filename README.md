@@ -1,26 +1,42 @@
-# Google AI Studio Build: Angular 22 Universal Template (FSD)
+# 🚀 Google AI Studio: Angular 22 Universal Template (Zoneless)
 
-This repository provides a bleeding-edge, highly optimized universal template designed specifically for generation and rapid prototyping within the **Google AI Studio Build** environment. It is structured to allow an AI Agent to assemble complete features modularly, much like LEGO.
+[![Angular](https://img.shields.io/badge/Angular-22.0.0-dd1b16?style=for-the-badge&logo=angular&logoColor=white)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0.0-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Google AI Studio](https://img.shields.io/badge/Google_AI_Studio-Agentic_Workspace-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com/)
+
+🌍 *[Русская версия (Russian Version) README.ru.md](./README.ru.md)*
+
+This repository is **a targeted solution** for a specific limitation inside the Google AI Studio agentic workspace. It acts as a bleeding-edge, highly optimized universal template designed to let you build **Angular 22** applications directly in the platform.
 
 🔗 **[Live Demo on Google AI Studio](https://ai.studio/apps/75b78179-6774-4f20-b890-182f0b549e24?fullscreenApplet=true)**
 
-## 🚀 Why This Template?
-When working with AI agents in cloud sandboxes, structural clarity and deterministic dependency resolutions are critical. This template mitigates LLM hallucinations and sandbox constraints by establishing a robust, self-contained framework based on **Feature-Sliced Design (FSD)** architecture. 
+---
 
-It aims to solve the "blank slate" problem in Google AI Studio, allowing you (and the agent) to focus entirely on generating robust business logic rather than battling environment configurations or boilerplate setup.
+## ⚠️ The Problem: Google AI Studio generates Angular 21
 
-### 📚 Angular 22 Migration Guide
-Since Google AI Studio uses an isolated execution container with a specific version of Node.js (`v22.22.2`), regular updates of standard Angular CLI packages break with `ng build` errors.
+By default, if you ask the Google AI Agent to build an Angular project, it will safely default to Angular 21. 
 
-We have included an important solution for this — the [AI Studio Angular 22 Migration Guide (`/docs/migration-to-angular-22.en.md`)](./docs/migration-to-angular-22.en.md). It outlines both the theoretical underpinning of the Node Engine validation step and provides an exact prompt that forces the AI Agent to patch and bypass these constraints smoothly!
+**Why?** Because the AI Studio execution container sandbox runs on a strictly locked Node.js version (`v22.22.2`). However, the Angular CLI (`@angular/cli@22.0.0`) has a hardcoded security check that requires Node `>=22.22.3`. 
 
-### 🏗️ Architecture & Stack
-*   **Framework:** Angular 22 (Strict Mode, `Node >= 22.2.2`).
-*   **Performance:** 100% **Zoneless** (`provideZonelessChangeDetection`), `ChangeDetectionStrategy.OnPush` enforced by default across all components.
-*   **Reactivity:** Deep integration of modern Signals — leveraging new APIs like `model()`, `linkedSignal()`, `resource()`, and the `@let` template syntax.
-*   **Styling:** Tailwind CSS v4 (native `@tailwindcss/postcss` integration with esbuild Angular CLI builder).
-*   **SSR:** Native Server-Side Rendering capabilities handled by Express v5, solving sandbox memory-leak challenges during concurrent async routing.
-*   **Paradigm:** LLM-as-Admin. In AI Studio prototypes, standard Web Workers are active but persistent dynamic databases are usually omitted for speed. The LLM agent fully manages data state via direct TypeScript codebase mutations, functioning dynamically as both the database layer and the data administrator.
+Because of this rigid **patch-version difference** (0.0.1!), attempting to upgrade or generate a raw Angular 22 project in the AI Studio chat will instantly lead to `ng build` crashing.
 
-### 🧩 Feature-Sliced Design (FSD)
-Modules are completely encapsulated inside the `src/app/features/*` directory. Each folder represents a self-contained domain model (Business Logic + State + UI). To reuse a generated feature in your next project, simply copy its directory — everything inherently wires up.
+## 🛠️ The Solution: This Template
+
+This repository bypasses this artificial limitation using a targeted configuration workaround. By utilizing this template as your starting point, you unlock the ability to prompt the AI agent using the absolute latest Angular capabilities.
+
+We have included a detailed breakdown of the fix in our [AI Studio Angular 22 Migration Guide (`/docs/migration-to-angular-22.en.md`)](./docs/migration-to-angular-22.en.md).
+
+---
+
+## 🏗️ Architecture & Stack
+This template is optimized for LLM readability, reducing context pollution and preventing AI "hallucinations":
+
+*   **Framework:** Angular 22 (Strict Mode, patched for AI Studio).
+*   **100% Zoneless:** `provideZonelessChangeDetection` enabled, zero `zone.js` dependencies for lightning-fast performance in the cloud IDE.
+*   **Modern Reactivity:** Deep integration of Signals (`model()`, `linkedSignal()`, `resource()`), perfectly suited for AI-generated components.
+*   **Styling:** Native **Tailwind CSS v4** via `@tailwindcss/postcss` for instant browser side-rendering.
+*   **Architectural Freedom:** There are no strict architectural dogmas like FSD enforced. Whether you want to use Feature-Sliced Design, Domain-Driven Design (DDD), or a simple flat structure, this template stays out of your way and provides a clean canvas.
+
+### 🤖 LLM-as-Admin Paradigm
+While building prototypes in Google AI Studio, external databases are often unnecessary boilerplate. This template embraces the **LLM-as-Admin** paradigm: the AI agent acts as both the backend and the database, dynamically modifying the TypeScript codebase and local state in real-time as you chat with it.
