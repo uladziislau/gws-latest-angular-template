@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 selection:bg-indigo-500/30">
@@ -19,6 +19,19 @@ import { RouterOutlet } from '@angular/router';
               Универсальный <span class="text-zinc-500 font-medium tracking-normal">Шаблон</span>
             </h1>
           </div>
+          <nav class="flex items-center gap-4">
+            <a routerLink="/" 
+               routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium" 
+               [routerLinkActiveOptions]="{exact: true}"
+               class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+              Главная
+            </a>
+            <a routerLink="/tests" 
+               routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium"
+               class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+              Статус и Тесты
+            </a>
+          </nav>
         </div>
       </header>
 
