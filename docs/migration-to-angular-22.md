@@ -135,6 +135,7 @@ Studio** возникают два фундаментальных огранич
     "@tailwindcss/postcss": "^4.0.0",
     "@types/express": "^5.0.1",
     "@types/node": "^22.10.0",
+    "@angular-eslint/builder": "^21.4.0",
     "angular-eslint": "^21.4.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.20.0",
@@ -214,7 +215,7 @@ if (fs.existsSync(file)) {
   * `"watch": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --watch --configuration development"`
   * `"test": "cross-env NG_DISABLE_VERSION_CHECK=true ng test"`
   * `"lint": "cross-env NG_DISABLE_VERSION_CHECK=true ng lint"`
-- Добавь пакет `cross-env: "^7.0.3"` в devDependencies.
+- Добавь пакеты `cross-env: "^7.0.3"`, `@angular-eslint/builder: "^21.4.0"` в devDependencies.
 - Обнови пакеты `typescript` до `^6.0.0`, `@types/node` до `^22.10.0` (или
   `^22.22.2`), `@tailwindcss/postcss` и `tailwindcss` до `^4.1.12`.
 - Обнови библиотеки тестирования для совместимости с новой средой: `jsdom`
