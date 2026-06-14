@@ -35,15 +35,11 @@ When migrating to Angular 22 in AI Studio, it is extremely important to build a 
 `package.json`. Below is a detailed rationale for each key package:
 
 ### Primary dependencies (`dependencies`):
-* **`@angular/*` (including `cdk`, `material`, `ssr`, `router`, etc.) — Version `^22.0.0`**
+* **`@angular/*` (including `cdk`, `material`, `router`, etc.) — Version `^22.0.0`**
   * *Rationale:* Moving to a unified major version 22 is required to support
     full zoneless reactivity (**Zoneless/OnPush**), completely removing the need
     for the heavy `zone.js` dependency, thus increasing overall rendering speed and
     reducing the bundle size.
-* **`express` — Version `^5.1.0`**
-  * *Rationale:* The latest stable Express version ensuring seamless integration
-    with the Angular SSR layer for hybrid rendering and API endpoint/WebSocket
-    handling directly in the AI Studio development environment.
 * **`motion` — Version `^12.23.24`**
   * *Rationale:* A modern, high-performance pure JS animation library.
     In modern Angular applications, the use of `@angular/animations` is strictly prohibited
@@ -63,8 +59,7 @@ When migrating to Angular 22 in AI Studio, it is extremely important to build a 
     "warm startup" of the dev-server in AI Studio.
 * **`@types/node` — Version `^22.10.0` (or `^22.22.2`)**
   * *Rationale:* Node.js API type definitions for TypeScript. Targeted for the Node 22
-    runtime branch. Allows server-side (SSR) code compilation without
-    typing errors.
+    runtime branch. Allows compiling scripts or testing with Vitest without typing errors.
 * **`cross-env` — Version `^7.0.3`**
   * *Rationale:* A cross-platform system utility necessary for the stable execution of
     the `NG_DISABLE_VERSION_CHECK=true` environment variable across environments.
