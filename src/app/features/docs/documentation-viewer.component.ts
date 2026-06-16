@@ -15,11 +15,11 @@ import { I18nService, Language } from '../../core/i18n.service';
         @if (isLoading()) {
           <div class="flex flex-col items-center justify-center py-20 gap-4">
             <span class="w-8 h-8 rounded-full border-4 border-zinc-200 dark:border-zinc-800 border-t-indigo-500 animate-spin"></span>
-            <span class="text-sm text-zinc-500">{{ i18n.t()('docs.loading') }}</span>
+            <span class="text-sm text-zinc-500">{{ i18n.t('docs.loading') }}</span>
           </div>
         } @else if (error()) {
           <div class="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-900/50">
-            {{ i18n.t()('docs.error') }}
+            {{ i18n.t('docs.error') }}
           </div>
         } @else {
           <article 

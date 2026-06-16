@@ -37,6 +37,11 @@
                 "glob": "*.md",
                 "input": ".",
                 "output": "/"
+              },
+              {
+                "glob": "**/*.json",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
