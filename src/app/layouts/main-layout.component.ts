@@ -50,6 +50,11 @@ import { GlobalErrorHandler } from '../core/error-handler.service';
                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
               {{ i18n.t('nav.tests') }}
             </a>
+            <a routerLink="/signals"
+               routerLinkActive="text-indigo-600 dark:text-indigo-400 font-medium"
+               class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+              {{ i18n.currentLang() === 'ru' ? 'Сигналы' : 'Signals' }}
+            </a>
             <div class="h-4 w-px bg-zinc-200 dark:bg-zinc-800 ml-1"></div>
 
             <!-- Theme Toggle -->

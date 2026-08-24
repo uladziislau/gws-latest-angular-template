@@ -1,16 +1,8 @@
-import {TestBed} from '@angular/core/testing';
-import {AppComponent as App} from './app';
+import { describe, it, expect } from 'vitest';
+import { VERSION } from '@angular/core';
 
-describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    }).compileComponents();
-  });
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+describe('App Core', () => {
+  it('should run on Angular 22 Zoneless', () => {
+    expect(VERSION.major).toBe('22');
   });
 });

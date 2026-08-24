@@ -12,10 +12,17 @@ export const routes: Routes = [
       },
       {
         path: 'tests',
+        title: 'Runtime & Diagnostics | Angular 22 Template',
         loadComponent: () => import('./features/tests-page/tests-page.component').then(m => m.TestsPageComponent)
       },
       {
+        path: 'signals',
+        title: 'Signals Playground | Angular 22 Template',
+        loadComponent: () => import('./features/signals-playground/signals-playground.component').then(m => m.SignalsPlaygroundComponent)
+      },
+      {
         path: 'docs',
+        title: 'Documentation | Angular 22 Template',
         loadComponent: () => import('./features/docs/documentation-viewer.component').then(m => m.DocumentationViewerComponent)
       }
     ]

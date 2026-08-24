@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { VERSION } from '@angular/core';
 
 describe('Angular Version Check', () => {
