@@ -1,0 +1,49 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits"
+  ],
+  "packageManager": "pnpm@12.8.1",
+  "pnpm": {
+    "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 5am on monday"
+    ]
+  },
+  "npm": {
+    "minimumReleaseAge": "1 day"
+  },
+  "major": {
+    "automerge": false
+  },
+  "minor": {
+    "automerge": true
+  },
+  "patch": {
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "description": "Angular-пакеты обновляем вместе — их версии должны совпадать",
+      "matchPackagePatterns": [
+        "^@angular/"
+      ],
+      "groupName": "angular"
+    },
+    {
+      "description": "Тулчейн обновляем одним пакетом",
+      "matchPackageNames": [
+        "typescript",
+        "vite",
+        "vitest",
+        "jsdom"
+      ],
+      "groupName": "toolchain"
+    }
+  ]
+}
