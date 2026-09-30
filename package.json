@@ -21,7 +21,6 @@
     "url": "https://github.com/Dev-Biceps/gws-latest-angular-template.git"
   },
   "scripts": {
-    "postinstall": "node patch-node-version.js",
     "ng": "cross-env NG_DISABLE_VERSION_CHECK=true ng",
     "start": "cross-env NG_DISABLE_VERSION_CHECK=true ng serve",
     "dev": "cross-env PORT=3000 NG_DISABLE_VERSION_CHECK=true ng serve --host 0.0.0.0 --port 3000",
