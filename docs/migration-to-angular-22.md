@@ -105,7 +105,10 @@ Studio** возникают два фундаментальных огранич
     "build": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --configuration production",
     "watch": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --watch --configuration development",
     "test": "cross-env NG_DISABLE_VERSION_CHECK=true ng test",
-    "lint": "cross-env NG_DISABLE_VERSION_CHECK=true ng lint"
+    "lint": "pnpm run lint:ts && pnpm run lint:html",
+    "lint:ts": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "lint:html": "cross-env NG_DISABLE_VERSION_CHECK=true ng lint"
   },
   "dependencies": {
     "@angular/cdk": "^22.0.0",
@@ -133,6 +136,7 @@ Studio** возникают два фундаментальных огранич
     "eslint": "^9.20.0",
     "jsdom": "^26.0.0",
     "postcss": "^8.4.35",
+    "oxlint": "^1.87.0",
     "tailwindcss": "^4.1.12",
     "typescript": "^6.0.0",
     "typescript-eslint": "^8.24.0",
@@ -206,8 +210,11 @@ if (fs.existsSync(file)) {
   * `"build": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --configuration production"`
   * `"watch": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --watch --configuration development"`
   * `"test": "cross-env NG_DISABLE_VERSION_CHECK=true ng test"`
-  * `"lint": "cross-env NG_DISABLE_VERSION_CHECK=true ng lint"`
-- Добавь пакеты `cross-env: "^7.0.3"`, `@angular-eslint/builder: "^22.0.0"`, `@angular-eslint/schematics: "^22.0.0"`, `angular-eslint: "^22.0.0"` в devDependencies.
+  * `"lint": "pnpm run lint:ts && pnpm run lint:html"`
+  * `"lint:ts": "oxlint"`
+  * `"lint:fix": "oxlint --fix"`
+  * `"lint:html": "cross-env NG_DISABLE_VERSION_CHECK=true ng lint"`
+- Добавь пакеты `cross-env: "^7.0.3"`, `@angular-eslint/builder: "^22.0.0"`, `@angular-eslint/schematics: "^22.0.0"`, `angular-eslint: "^22.0.0"`, `oxlint: "^1.87.0"` в devDependencies.
 - Обнови пакеты `typescript` до `^6.0.0`, `@types/node` до `^22.10.0` (или
   `^22.22.2`), `@tailwindcss/postcss` и `tailwindcss` до `^4.1.12`.
 - Обнови библиотеки тестирования для совместимости с новой средой: `jsdom`

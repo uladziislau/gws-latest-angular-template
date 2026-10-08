@@ -21,13 +21,16 @@
     "url": "https://github.com/Dev-Biceps/gws-latest-angular-template.git"
   },
   "scripts": {
+    "build": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --configuration production",
+    "dev": "cross-env PORT=3000 NG_DISABLE_VERSION_CHECK=true ng serve --host 0.0.0.0 --port 3000",
+    "lint": "pnpm run lint:ts && pnpm run lint:html",
+    "lint:fix": "oxlint --fix",
+    "lint:html": "cross-env NG_DISABLE_VERSION_CHECK=true ng lint",
+    "lint:ts": "oxlint",
     "ng": "cross-env NG_DISABLE_VERSION_CHECK=true ng",
     "start": "cross-env NG_DISABLE_VERSION_CHECK=true ng serve",
-    "dev": "cross-env PORT=3000 NG_DISABLE_VERSION_CHECK=true ng serve --host 0.0.0.0 --port 3000",
-    "build": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --configuration production",
-    "watch": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --watch --configuration development",
     "test": "cross-env NG_DISABLE_VERSION_CHECK=true ng test",
-    "lint": "cross-env NG_DISABLE_VERSION_CHECK=true ng lint"
+    "watch": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --watch --configuration development"
   },
   "private": true,
   "engines": {
@@ -64,6 +67,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^10.9.0",
     "jsdom": "^26.0.0",
+    "oxlint": "^1.87.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
