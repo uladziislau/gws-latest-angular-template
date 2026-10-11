@@ -30,6 +30,7 @@
     "ng": "cross-env NG_DISABLE_VERSION_CHECK=true ng",
     "start": "cross-env NG_DISABLE_VERSION_CHECK=true ng serve",
     "test": "cross-env NG_DISABLE_VERSION_CHECK=true ng test",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
     "watch": "cross-env NG_DISABLE_VERSION_CHECK=true ng build --watch --configuration development"
   },
   "private": true,
