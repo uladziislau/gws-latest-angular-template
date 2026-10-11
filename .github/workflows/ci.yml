@@ -28,6 +28,9 @@ jobs:
       
     - name: Run Linter
       run: npm run lint
+
+    - name: Typecheck
+      run: npm run typecheck
       
     - name: Run Tests (Vitest)
       run: npm run test -- --watch=false # Используем --watch=false чтобы предотвратить watch-mode в CI
