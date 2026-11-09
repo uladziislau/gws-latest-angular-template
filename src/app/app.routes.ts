@@ -23,7 +23,7 @@ export const routes: Routes = [
       {
         path: 'docs',
         title: 'Documentation | Angular 22 Template',
-        loadComponent: () => import('./features/docs/documentation-viewer.component').then(m => m.DocumentationViewerComponent)
+        loadComponent: () => import('./features/documentation/documentation-viewer.component').then(m => m.DocumentationViewerComponent)
       }
     ]
   }

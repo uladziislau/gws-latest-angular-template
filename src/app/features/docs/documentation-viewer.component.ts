@@ -51,7 +51,7 @@ export class DocumentationViewerComponent {
       this.error.set(null);
       // Fetches the markdown from the docs folder we exposed as assets
       const fileName = lang === 'en' ? 'migration-to-angular-22.en.md' : 'migration-to-angular-22.md';
-      const response = await fetch('/docs/' + fileName);
+      const response = await fetch('/documentation/' + fileName);
       
       if (!response.ok) {
         throw new Error('Не удалось загрузить документацию.');
