@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { I18nService } from '../core/i18n.service';
-import { ThemeService } from '../core/theme.service';
-import { GlobalErrorHandler } from '../core/error-handler.service';
+import { I18nService } from '../../services/i18n.service';
+import { ThemeService } from '../../services/theme.service';
+import { GlobalErrorHandler } from '../../services/error-handler.service';
 
 @Component({
   selector: 'app-main-layout',

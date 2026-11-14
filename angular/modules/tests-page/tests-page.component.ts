@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, VERSION, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { I18nService } from '../../core/i18n.service';
+import { I18nService } from '../../services/i18n.service';
 
 interface TestResult {
   name: string;

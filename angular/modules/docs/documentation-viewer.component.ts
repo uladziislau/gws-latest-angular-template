@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, signal, inject, effect } from '@ang
 import { CommonModule } from '@angular/common';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
-import { I18nService, Language } from '../../core/i18n.service';
+import { I18nService, Language } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-documentation-viewer',
