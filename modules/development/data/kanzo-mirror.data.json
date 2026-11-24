@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "source": "kanzo",
+  "project": "gws-latest-angular-template",
+  "repo": "uladziislau/gws-latest-angular-template",
+  "boardUrl": "http://localhost:4242",
+  "cards": [
+    {
+      "id": 66,
+      "repoId": "drift-gws-latest-angular-template-@angular/core-22.3.0",
+      "title": "Обновить @angular/core до 22.3.0 — gws-latest-angular-template",
+      "status": "todo",
+      "tags": [
+        "imported",
+        "devimp-drift-gws-latest-angular-template-angular-core-22-3-0",
+        "drift",
+        "@angular/core"
+      ],
+      "url": ""
+    },
+    {
+      "id": 67,
+      "repoId": "drift-gws-latest-angular-template-typescript-7.0.2",
+      "title": "Обновить typescript до 7.0.2 — gws-latest-angular-template",
+      "status": "todo",
+      "tags": [
+        "imported",
+        "devimp-drift-gws-latest-angular-template-typescript-7-0-2",
+        "drift",
+        "typescript"
+      ],
+      "url": ""
+    }
+  ]
+}
