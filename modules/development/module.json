@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "project": "gws-latest-angular-template",
+  "remote": "uladziislau/gws-latest-angular-template",
+  "class": "tool",
+  "lifecycle": "active",
+  "stateSource": {
+    "type": "backlog",
+    "path": "data/modules/development/tasks.development.json"
+  },
+  "adapter": {
+    "type": "data-only"
+  }
+}

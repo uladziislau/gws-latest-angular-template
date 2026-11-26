@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task.gws-latest-angular-template.deps.angular-core-22-3-0",
+    "title": "Обновить @angular/core до 22.3.0",
+    "description": "Kanzo card 66: drift @angular/core → 22.3.0",
+    "status": "todo",
+    "priority": "medium",
+    "tags": ["drift", "@angular/core", "imported"]
+  },
+  {
+    "id": "task.gws-latest-angular-template.deps.typescript-7-0-2",
+    "title": "Обновить typescript до 7.0.2",
+    "description": "Kanzo card 67: drift typescript → 7.0.2",
+    "status": "todo",
+    "priority": "medium",
+    "tags": ["drift", "typescript", "imported"]
+  }
+]
